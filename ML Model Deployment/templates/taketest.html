@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+	<title>
+		Diab doctor 
+	</title>
+
+	<style>
+
+
+		/* Styling the Body element i.e. Color,
+		Font, Alignment */
+		body {
+			background-image:url({{url_for('static',filename='di.jpg')}})
+
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input,
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+        }
+ 
+
+		/* Styling Button */
+		button {
+			background-color: #05c46b;
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			font-size: 21px;
+			display: block;
+			width: 100%;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1 align="center">Diabetes prediction</h1>
+<form action="{{ url_for('predict')}}" method="post">
+	
+		<!-- Details -->
+		
+
+		<div class="form-control">
+			<label >
+				Age
+			</label>
+
+			<!-- Input Type Text -->
+			<input type="text"
+				name="age"
+				placeholder="Enter your age" />
+		</div>
+
+               
+
+		<div class="form-control">
+			<label>
+				Gender
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio" name="gender"
+					id="Male"
+                                        value="1"
+					>Male</input>
+			
+			
+				<input type="radio" name="gender"
+					id="Female"
+                                        value="0"
+					>Female</input>
+			
+			
+		</div>
+
+		<div class="form-control">
+			<label>
+			     Do you suffer from frequent urination? (20 times a day)
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"
+					id="Yes"
+                                        value="1"
+					name="poly">Yes</input>
+			
+			
+				<input type="radio"
+					id="No"
+                                        value="0"
+					name="poly">No</input>
+			
+			
+		</div>
+
+<div class="form-control">
+			<label>
+			     Are you being thirsty frequently?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"
+                                        value="1"
+					name="polyd">Yes</input>
+			
+				<input type="radio"
+					
+                                        value="0"
+					name="polyd">No</input>
+		
+			
+		</div>
+
+<div class="form-control">
+			<label>
+			     Do you suffer from weightloss?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"
+					
+                                        value="1"
+					name="weight">Yes</input>
+			
+				<input type="radio"
+				
+                                        value="0"
+					name="weight">No</input>
+			
+			
+		</div>
+
+<div class="form-control">
+			<label>
+			     Do you suffer from weakness?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"					
+                                        value="1"
+					name="weak">Yes</input>
+			
+				<input type="radio"				
+                                        value="0"
+					name="weak">No</input>						
+		</div>
+
+<div class="form-control">
+			<label>
+			     Do you suffer from  hunger even after taking food?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"				
+                                        value="1"
+					name="polyp">Yes</input>
+			
+				<input type="radio"					
+                                        value="0"
+					name="polyp">No</input>
+		
+			
+		</div>
+<div class="form-control">
+			<label>
+			     Do you suffer from itching in urinal area?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"					
+                                        value="1"
+					name="gene">Yes</input>
+			
+				<input type="radio"					
+                                        value="0"
+					name="gene">No</input>						
+		</div>
+
+<div class="form-control">
+			<label>
+			     Do you suffer from Visual blurring?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"					
+                                       value="1"
+					name="vis">Yes</input>
+			
+				<input type="radio"					
+                                        value="0"
+					name="vis">No</input>	
+					
+		</div>
+
+<div class="form-control">
+			<label>
+			     Do you suffer from itching?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"					
+                                        value="1"
+					name="itch">Yes</input>
+			
+				<input type="radio"					
+                                        value="0"
+					name="itch">No</input>
+			</label>
+			
+		</div>
+
+<div class="form-control">
+			<label>
+			     Do you suffer from irritation?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"
+					
+                                        value="1"
+					name="irri">Yes</input>
+			
+				<input type="radio"
+					
+                                        value="0"
+					name="irri">No</input>						
+		</div>
+
+<div class="form-control">
+			<label>
+			     Do your wound heals slowly?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"
+					
+                                        value="1"
+					name="delay">Yes</input>
+			
+				<input type="radio"
+					
+                                        value="0"
+					name="delay">No</input>
+			
+			
+		</div>
+
+<div class="form-control">
+			<label>
+			     have ever suffered partial paralysis?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"					
+                                        value="1"
+					name="partial">Yes</input>
+			
+				<input type="radio"					
+                                        value="0"
+					name="partial">No</input>
+			
+			
+		</div>
+
+<div class="form-control">
+			<label>
+			     Do you Have muscle stiffness?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"
+					
+                                        value="1"
+					name="muscle">Yes</input>
+			
+				<input type="radio"					
+                                        value="0"
+					name="muscle">No</input>						
+		</div>
+
+<div class="form-control">
+			<label>
+			     Is there a sudden hairloss ?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+				<input type="radio"					
+                                        value="1"
+					name="alop">Yes</input>
+			
+				<input type="radio"					
+                                        value="0"
+					name="alop">No</input>			
+			
+		</div>
+
+<div class="form-control">
+			<label>
+			     Are you obese?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			
+
+				<input type="radio"
+					
+                                        value="1"
+					name="obese">Yes</input>
+			
+				<input type="radio"					
+                                      value="0"
+					name="obese">No</input>
+			
+			
+		</div>
+
+
+		<!-- Multi-line Text Input Control -->
+		<button type="submit" class="btn">
+			Predict
+		</button>
+	</form>
+
+<br>
+<br>
+
+  <h2 align="center"> {{prediction_text}}</h2>
+</body>
+
+</html>
